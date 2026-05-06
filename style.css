@@ -1,55 +1,354 @@
-/* Paleta: 60% Preto (#121212), 30% Azul (#007BFF), 10% Branco (#FFFFFF) */
-
 :root {
-    --bg-color: #121212;      /* 60% - Preto */
-    --accent-color: #007BFF;  /* 30% - Azul */
-    --text-color: #FFFFFF;    /* 10% - Branco */
-    --card-bg: #1e1e1e;
+    --bg-color: #0a0a0a;
+    /* Fundo mais profundo */
+    --accent-color: #007BFF;
+    --accent-glow: rgba(0, 123, 255, 0.3);
+    --text-color: #ffffff;
+    --text-dim: #a0a0a0;
+    --card-bg: #161616;
+    --glass: rgba(255, 255, 255, 0.03);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
 
-body { 
-    background-color: var(--bg-color); 
-    color: var(--text-color); 
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+/* Background suave com gradiente para não ser um preto chapado */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% -20%, #1e1e1e, transparent);
+    z-index: -1;
+}
 
-/* Navegação */
-nav { padding: 20px 0; background: rgba(18, 18, 18, 0.95); position: sticky; top: 0; z-index: 100; }
-.nav-flex { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 2px; }
-.logo span { color: var(--accent-color); }
-.nav-links { display: flex; list-style: none; gap: 30px; }
-.nav-links a { color: var(--text-color); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-.nav-links a:hover { color: var(--accent-color); }
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-/* Hero Section */
-.hero { padding: 120px 0; border-bottom: 1px solid #333; }
-.hero h1 { font-size: 3.5rem; max-width: 800px; line-height: 1.2; margin-bottom: 20px; }
-.hero h1 span { color: var(--accent-color); }
-.hero p { font-size: 1.2rem; color: #ccc; max-width: 600px; margin-bottom: 30px; }
-.social-badges span { background: #333; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; margin-right: 10px; border: 1px solid var(--accent-color); }
+/* Navegação Glassmorphism */
+nav {
+    padding: 20px 0;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
 
-/* Projetos */
-.projects { padding: 80px 0; }
-.section-title { font-size: 2rem; margin-bottom: 50px; text-align: left; }
-.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-.project-card { background: var(--card-bg); border-radius: 15px; overflow: hidden; transition: transform 0.3s; }
-.project-card:hover { transform: translateY(-10px); }
-.card-img { height: 220px; background-color: #333; background-size: cover; background-position: center; }
-.card-body { padding: 25px; }
-.card-body h3 { margin-bottom: 10px; }
-.card-body p { color: #aaa; font-size: 0.95rem; margin-bottom: 20px; }
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-/* Botões */
-.btn-project { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 20px; border-radius: 5px; transition: 0.3s; }
-.btn-project:hover { background: var(--accent-color); color: white; }
-.btn-cta { background: var(--accent-color); color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; }
-.btn-cta:hover { opacity: 0.8; box-shadow: 0 0 20px rgba(0, 123, 255, 0.4); }
+.logo {
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
 
-/* Footer */
-footer { padding: 100px 0; text-align: center; background: #0a0a0a; }
-footer h2 { font-size: 2.5rem; margin-bottom: 10px; }
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-links a:hover {
+    color: var(--text-color);
+}
+
+/* Hero Section Refinada */
+.hero {
+    padding: 160px 0 100px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 25px;
+    margin-top: 50px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, #007BFF, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    max-width: 550px;
+    margin: 0 auto 40px;
+}
+
+.social-badges span {
+    background: var(--glass);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.social-badges span:hover {
+    border-color: var(--accent-color);
+    background: var(--accent-glow);
+}
+
+/* Grid de Projetos Modernizado */
+.projects {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-card:hover {
+    transform: translateY(-12px);
+    border-color: rgba(0, 123, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-img {
+    height: 240px;
+    background-color: #222;
+    transition: 0.5s;
+    filter: grayscale(20%);
+}
+
+.project-card:hover .card-img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.card-body h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+.card-body p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* Botões com Efeito de Brilho */
+.btn-project {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 8px;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.btn-project:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-cta {
+    background: var(--accent-color);
+    color: white;
+    padding: 18px 45px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    display: inline-block;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+/* Footer Minimalista */
+footer {
+    padding: 100px 0;
+    text-align: center;
+    background: #0a0a0a;
+
+    /* ADICIONE ESTAS LINHAS: */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 120px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer h2 {
+    font-size: 3rem;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+footer p {
+    color: var(--text-dim);
+    margin-bottom: 40px;
+}
+
+/* Efeito de Fundo Melhorado */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Adiciona uma textura de grade pontilhada bem sutil */
+    background-image: radial-gradient(rgba(0, 123, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* Auras Azuis de Profundidade */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    filter: blur(120px);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* Aura no topo esquerdo */
+body::before {
+    top: -100px;
+    left: -100px;
+    background: var(--accent-color);
+}
+
+/* Aura no meio direito (surge conforme desce) */
+body::after {
+    bottom: 10%;
+    right: -100px;
+    background: #0084ff;
+}
+
+/* Linha de progresso no topo da página */
+nav::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+}
+
+/* Efeito de brilho flutuante extra no Hero */
+.hero {
+    position: relative;
+    padding: 80px 0 100px; 
+    text-align: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 100px;
+    background: var(--accent-color);
+    filter: blur(100px);
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.card-img { 
+    height: 240px; 
+    background-color: #222; 
+    
+    /* ADICIONE/AJUSTE ESTAS LINHAS: */
+    background-size: cover;       /* Faz a imagem preencher todo o espaço */
+    background-position: center;  /* Centraliza a imagem horizontal e verticalmente */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    
+    transition: 0.5s;
+    filter: grayscale(20%);
+}
+.profile-img {
+    width: 225px;           /* Tamanho da foto */
+    height: 225px;          /* Deve ser igual à largura */
+    border-radius: 50%;     /* Deixa redonda */
+    object-fit: cover;      /* Garante que não distorça o rosto */
+    margin-bottom: 30px;    /* Afasta do título */
+    border: 3px solid var(--accent-color); /* Borda azul */
+    box-shadow: 0 0 20px var(--accent-glow); /* Brilho em volta da foto */
+    display: block;         /* Necessário para o margin auto funcionar */
+    margin-left: auto;      /* Centraliza horizontalmente */
+    margin-right: auto;     /* Centraliza horizontalmente */
+    transition: transform 0.3s ease;
+    object-fit: cover; 
+    object-position: -100px center;
+}
+
+.profile-img:hover {
+    transform: scale(1.05); /* Efeito de zoom leve ao passar o mouse */
+    border-color: #00d4ff;  /* Muda o tom do azul no hover */
+}
