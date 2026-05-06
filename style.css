@@ -344,8 +344,6 @@ nav::after {
     margin-left: auto;      /* Centraliza horizontalmente */
     margin-right: auto;     /* Centraliza horizontalmente */
     transition: transform 0.3s ease;
-    object-fit: cover; 
-    object-position: -100px center;
 }
 
 .profile-img:hover {
