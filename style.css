@@ -131,6 +131,20 @@ nav {
     padding: 100px 0;
 }
 
+.projects h2 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 25px;
+    margin-top: -100px;
+    text-shadow: 0px 0px 10px #0066ff8e;
+    background: linear-gradient(90deg, #007BFF, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
 .section-title {
     font-size: 1.5rem;
     font-weight: 700;
@@ -144,6 +158,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 40px;
+    margin-top: 90px;
 }
 
 .project-card {
@@ -349,4 +364,92 @@ nav::after {
 .profile-img:hover {
     transform: scale(1.05); /* Efeito de zoom leve ao passar o mouse */
     border-color: #00d4ff;  /* Muda o tom do azul no hover */
+}
+
+/* 1. Animação de entrada suave (Fade In) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. Animação de flutuação para a foto de perfil */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Aplicando ao conteúdo do Hero */
+.hero-content {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.profile-img {
+    animation: float 4s ease-in-out infinite; /* Flutua continuamente */
+    border-radius: 50%; /* Garante que a foto seja circular */
+}
+
+/* 3. Efeito Hover nos Cards de Projetos */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Estilizando os Badges para surgirem com atraso */
+.social-badges span {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Delay para cada tecnologia aparecer uma após a outra */
+.social-badges span:nth-child(1) { animation-delay: 0.5s; }
+.social-badges span:nth-child(2) { animation-delay: 0.7s; }
+.social-badges span:nth-child(3) { animation-delay: 0.9s; }
+.social-badges span:nth-child(4) { animation-delay: 1.1s; }
+
+/* Botão CTA com pulso suave */
+.btn-cta {
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-cta:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+}
+/* Estado inicial: Invisível, levemente menor e inclinado */
+.project-card {
+    opacity: 0;
+    transform: scale(0.9) translateY(40px) rotateX(-10deg);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    perspective: 1000px; /* Dá profundidade ao efeito */
+}
+
+/* Quando o JS detectar o scroll, ele adiciona esta classe */
+.project-card.show {
+  opacity: 1;
+  transform: scale(1) translateY(1) rotateX(1);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Efeito de brilho ao passar o mouse (opcional) */
+.project-card:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    border-color: #3498db; /* Ou a cor que você estiver usando */
+}
+.project-card.hide {
+  opacity: 0;
+  transform: scale(0.9) translateY(40px) rotateX(-10deg);
 }
