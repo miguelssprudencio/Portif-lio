@@ -4,9 +4,12 @@ const observerOptions = {
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      // Adiciona a classe show aos elementos visíveis
+    if (entry.isIntersecting || entry.intersectionRatio > 0) {
+      // Adiciona a classe show aos elementos visíveis ou parcialmente visíveis
       entry.target.classList.add('show');
+    } else {
+      // Remove a classe show dos elementos que não estão mais visíveis
+      entry.target.classList.remove('show');
     }
   });
 }, observerOptions);

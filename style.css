@@ -131,19 +131,33 @@ nav {
     padding: 100px 0;
 }
 
-.projects h2 {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    font-weight: 800;
-    letter-spacing: -2px;
-    line-height: 1;
-    margin-bottom: 25px;
-    margin-top: -100px;
-    text-shadow: 0px 0px 10px #0066ff8e;
-    background: linear-gradient(90deg, #007BFF, #00d4ff);
+h2 {
+    /* Fonte: Inter ou Montserrat são ótimas escolhas modernas */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    
+    /* Tamanho e Peso */
+    font-size: clamp(2rem, 5vw, 5rem); /* Aumentei um pouco o mínimo para não sumir no mobile */
+    font-weight: 900;
+    line-height: 0.9;
+    
+    /* Espaçamento: Menos agressivo que -2px para não embolar as letras */
+    letter-spacing: -0.04em; 
+    
+    /* Margens: Cuidado com o -100px, pode sobrepor outros elementos de forma estranha */
+    margin-top: -90px; 
+    margin-bottom: 20px;
+
+    /* Degradê: Agora com cores mais harmoniosas (cinza azulado para branco) */
+    background: linear-gradient(135deg, #ffffff 30%, #a3a3a3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
+    /* Toque final: Um leve drop-shadow melhora a leitura em fundos escuros */
+    filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 0.267));
+    
     text-align: center;
 }
+
 
 .section-title {
     font-size: 1.5rem;
@@ -255,7 +269,7 @@ footer {
 
 footer h2 {
     font-size: 3rem;
-    letter-spacing: -2px;
+    letter-spacing: 2px;
     margin-bottom: 20px;
 }
 
@@ -452,4 +466,18 @@ nav::after {
 .project-card.hide {
   opacity: 0;
   transform: scale(0.9) translateY(40px) rotateX(-10deg);
+}
+
+footer {
+    margin-top: 20px;
+}
+
+footer p {
+    margin-top: 20px;
+}
+
+footer h2 {
+    margin-top: 0px;
+    line-height: 1.6;
+    margin-bottom: 12px;
 }
