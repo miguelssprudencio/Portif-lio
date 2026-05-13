@@ -160,12 +160,30 @@ h2 {
 
 
 .section-title {
+    /* Estilo de Box */
+    display: inline-block;
+    padding: 16px 40px;
+    background: rgba(62, 155, 255, 0.219);
+    border: 2px solid rgb(61, 152, 255);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(18, 133, 255, 0.671);
+    margin-left: 35.37%;
+    width: fit-content;
+    
+    /* Texto visível */
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 40px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--text-dim);
+    color: var(--text-color);
+    
+    /* Reset do h2 genérico */
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    filter: none;
 }
 
 .project-grid {
@@ -191,14 +209,18 @@ h2 {
 
 .card-img {
     height: 240px;
-    background-color: #222;
+    background-color: var(--glass);
     transition: 0.5s;
     filter: grayscale(20%);
 }
 
 .project-card:hover .card-img {
-    filter: grayscale(0%);
+    filter: blur(3px) grayscale(0%);
     transform: scale(1.05);
+}
+
+.project-card:hover .card-img::after {
+    backdrop-filter: blur(2px);
 }
 
 .card-body {
@@ -351,7 +373,8 @@ nav::after {
 
 .card-img { 
     height: 240px; 
-    background-color: #222; 
+    background-color: #222222; 
+    position: relative;
     
     /* ADICIONE/AJUSTE ESTAS LINHAS: */
     background-size: cover;       /* Faz a imagem preencher todo o espaço */
@@ -359,7 +382,20 @@ nav::after {
     background-repeat: no-repeat; /* Impede que a imagem se repita */
     
     transition: 0.5s;
-    filter: grayscale(20%);
+    filter: blur(8px) grayscale(20%);
+}
+
+.card-img::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;    
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 0;
+    transition: 0.5s;
 }
 .profile-img {
     width: 225px;           /* Tamanho da foto */
