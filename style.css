@@ -60,7 +60,7 @@ nav {
 }
 
 .logo {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -1px;
@@ -73,9 +73,9 @@ nav {
 }
 
 .nav-links a {
-    color: var(--text-dim);
+    color: var(--text-color);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     font-weight: 500;
     transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -106,8 +106,8 @@ nav {
 }
 
 .hero p {
-    font-size: 1.1rem;
-    color: var(--text-dim);
+    font-size: 1.4rem;
+    color: var(--text-color);
     max-width: 550px;
     margin: 0 auto 40px;
 }
@@ -116,9 +116,10 @@ nav {
     background: var(--glass);
     padding: 6px 16px;
     border-radius: 100px;
-    font-size: 0.75rem;
+    font-size: 1.2rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: 0.3s;
+    display: inline-block;
 }
 
 .social-badges span:hover {
@@ -188,9 +189,10 @@ h2 {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+    gap: 110px;
     margin-top: 90px;
+    justify-content: center;
 }
 
 .project-card {
@@ -257,22 +259,114 @@ h2 {
     border-color: var(--accent-color);
 }
 
-.btn-cta {
-    background: var(--accent-color);
-    color: white;
-    padding: 18px 45px;
-    text-decoration: none;
-    border-radius: 12px;
-    font-weight: 700;
-    display: inline-block;
-    transition: 0.4s;
-    position: relative;
-    overflow: hidden;
+/* From Uiverse.io by gharsh11032000 */ 
+.btn-cta{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid;
+  font-size: 20px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  
+ border-color: rgb(76, 183, 255);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 1.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.btn-cta:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px var(--accent-glow);
+.btn-cta:hover{
+    box-shadow: 0 10px 20px #0099ff8a;
+    transition: 0.8s;
+}
+
+.btn-cta svg {
+  position: absolute;
+  width: 24px;
+  margin-bottom: 10px;
+  fill: rgb(27, 164, 255);
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-cta .arr-1 {
+  right: 16px;
+}
+
+.btn-cta .arr-2 {
+  left: -25%;
+}
+
+.btn-cta .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  --clr-font-main: hsla(0 0% 20% / 100);
+  --btn-bg-1: rgb(40, 205, 255);
+  --btn-bg-2: hsla(217 100% 56% / 1);
+  --btn-bg-color: hsla(360 100% 100% / 1);
+  --radii: 0.5em;
+  cursor: pointer;
+  background-image: linear-gradient(
+    325deg,
+    var(--btn-bg-2) 0%,
+    var(--btn-bg-1) 55%,
+    var(--btn-bg-2) 90%
+  );
+  border: none;
+  border-radius: var(--radii);
+  color: var(--btn-bg-color);
+  box-shadow:
+    0px 0px 20px rgba(71, 184, 255, 0.5),
+    0px 5px 5px -1px rgba(58, 125, 233, 0.25),
+    inset 4px 4px 8px rgba(175, 230, 255, 0.5),
+    inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-cta .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+
+
+.btn-cta:hover .arr-1 {
+  right: -25%;
+}
+
+.btn-cta:hover .arr-2 {
+  left: 16px;
+}
+
+.btn-cta:hover .text {
+  transform: translateX(12px);
+}
+
+.btn-cta:hover svg {
+  fill: #212121;
+}
+
+.btn-cta:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 18px rgb(47, 154, 255);
+}
+
+.btn-cta:hover .circle {
+  width: 220px;
+  height: 230px;
+  opacity: 1;
 }
 
 /* Footer Minimalista */
@@ -298,56 +392,6 @@ footer h2 {
 footer p {
     color: var(--text-dim);
     margin-bottom: 40px;
-}
-
-/* Efeito de Fundo Melhorado */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    overflow-x: hidden;
-    /* Adiciona uma textura de grade pontilhada bem sutil */
-    background-image: radial-gradient(rgba(0, 123, 255, 0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
-}
-
-/* Auras Azuis de Profundidade */
-body::before,
-body::after {
-    content: "";
-    position: fixed;
-    width: 400px;
-    height: 400px;
-    filter: blur(120px);
-    border-radius: 50%;
-    z-index: -1;
-    opacity: 0.15;
-    pointer-events: none;
-}
-
-/* Aura no topo esquerdo */
-body::before {
-    top: -100px;
-    left: -100px;
-    background: var(--accent-color);
-}
-
-/* Aura no meio direito (surge conforme desce) */
-body::after {
-    bottom: 10%;
-    right: -100px;
-    background: #0084ff;
-}
-
-/* Linha de progresso no topo da página */
-nav::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
 }
 
 /* Efeito de brilho flutuante extra no Hero */
@@ -479,6 +523,135 @@ nav::after {
     filter: brightness(1.2);
     transform: scale(1.05);
 }
+
+/* Button Donate - Uiverse by Allyhere */
+.btn-donate {
+  --clr-font-main: hsla(0 0% 20% / 100);
+  --btn-bg-1: hsla(194 100% 69% / 1);
+  --btn-bg-2: hsla(217 100% 56% / 1);
+  --btn-bg-color: hsla(360 100% 100% / 1);
+  --radii: 0.5em;
+  cursor: pointer;
+  padding: 0.9em 1.4em;
+  width: 150px;
+  height: 54px;
+  font-size: var(--size, 1rem);
+  font-weight: 550;
+  transition: 0.8s;
+  background-size: 280% auto;
+  background-image: linear-gradient(
+    325deg,
+    var(--btn-bg-2) 0%,
+    var(--btn-bg-1) 55%,
+    var(--btn-bg-2) 90%
+  );
+  border: none;
+  border-radius: var(--radii);
+  color: var(--btn-bg-color);
+  box-shadow:
+    0px 0px 20px rgba(71, 184, 255, 0.5),
+    0px 5px 5px -1px rgba(58, 125, 233, 0.25),
+    inset 4px 4px 8px rgba(175, 230, 255, 0.5),
+    inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+    margin-top: 88px;
+}
+
+.btn-donate:hover {
+  background-position: right top;
+}
+
+.btn-donate:is(:focus, :focus-visible, :active) {
+  outline: none;
+  box-shadow:
+    0 0 0 3px var(--btn-bg-color),
+    0 0 0 6px var(--btn-bg-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-donate {
+    transition: linear;
+  }
+}
+
+/* Card Uiverse - adamgiebl */
+.card {
+  width: 350px;
+  height: 450px;
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: rgba(27, 202, 255, 0.2) 0 15px 30px -5px;
+  background-image: linear-gradient(144deg, #0066ff, #2bc3ff 50%, #00DDEB);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  transition: all 0.6s ease;
+  cursor: pointer;
+   
+}
+
+.card:hover {
+  animation: gradientShift 3s ease infinite;
+  box-shadow: rgba(65, 193, 252, 0.596) 0 20px 40px -5px;
+  transform: translateY(-8px);
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+
+.card__content {
+  background: rgb(5, 6, 45);
+  border-radius: 17px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.card__image {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(135deg, rgba(175, 64, 255, 0.2), rgba(0, 221, 235, 0.2));
+  border-radius: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-size: cover;
+  background-position: center;
+}
+
+.card__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__info h3 {
+  font-size: 25px;
+  color: #ffffff;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.card__info p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+}
 /* Estado inicial: Invisível, levemente menor e inclinado */
 .project-card {
     opacity: 0;
@@ -510,6 +683,8 @@ footer {
 
 footer p {
     margin-top: 20px;
+    font-size: 20px;
+    color: rgb(194, 194, 194);
 }
 
 footer h2 {
@@ -536,7 +711,7 @@ body {
   transition: 0.3s;
     line-height: 1.6;
     overflow-x: hidden;
-    background-image: radial-gradient(rgba(0, 123, 255, 0.1) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(0, 140, 255, 0.377) 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
@@ -577,7 +752,7 @@ footer:not(.dark-mode) h2 {
 
 /* --- CONFIGURAÇÃO APENAS PARA O MODO CLARO --- */
 body:not(.dark-mode)::before {
-    background: #0056b3; /* Um azul mais profundo para o topo */
+    background: #00aaff;  /* Um azul mais profundo para o topo */
     opacity: 0.4;        /* Menos opacidade para não "sujar" o fundo branco */
 }
 
@@ -599,10 +774,10 @@ body::after {
     position: fixed;
     width: 400px;
     height: 400px;
-    filter: blur(120px);
+    filter: blur(150px);
     border-radius: 50%;
     z-index: -1;
-    opacity: 0.15;
+    opacity: 0.30;
     pointer-events: none;
     transition: all 0.5s ease; /* Para a aura mudar suavemente */
 }
@@ -616,7 +791,7 @@ body::before {
 body::after {
     bottom: 10%;
     right: -100px;
-    background: #0084ff;
+    background: #0051ff;
 }
 
 nav::after {
@@ -631,65 +806,337 @@ nav::after {
 }
 
 /* Container do Switch */
-.theme-switch {
-  --bg-color: #333;
-  --ball-color: #fff;
-  display: inline-block;
-  position: relative;
-  width: 60px;
-  height: 30px;
+/* From Uiverse.io by JkHuger */ 
+.l {
+  display: block;
+  margin-bottom: 1.5em;
+  font-size: 1em;
   cursor: pointer;
 }
 
-/* Esconde o checkbox real */
-.theme-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+.l {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.75em;
+  box-shadow: 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.3) inset;
+  color: #fdea7b;
+  display: inline-flex;
+  align-items: center;
+  margin: auto;
+  padding: 0.15em;
+  width: 3em;
+  height: 1.5em;
+  transition:
+    background-color 0.1s 0.3s ease-out,
+    box-shadow 0.1s 0.3s ease-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-/* Fundo do Slider */
-.slider {
+.l:before,
+.l:after {
+  content: "";
+  display: block;
+}
+
+.l:before {
+  background-color: #d7d7d7;
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  transition:
+    background-color 0.1s 0.3s ease-out,
+    transform 0.3s ease-out;
+  z-index: 1;
+}
+
+.l:after {
+  background:
+    linear-gradient(transparent 50%, rgba(0, 0, 0, 0.15) 0) 0 50% / 50% 100%,
+    repeating-linear-gradient(90deg, #bbb 0, #bbb, #bbb 20%, #999 20%, #999 40%)
+      0 50% / 50% 100%,
+    radial-gradient(circle at 50% 50%, #888 25%, transparent 26%);
+  background-repeat: no-repeat;
+  border: 0.25em solid transparent;
+  border-left: 0.4em solid #d8d8d8;
+  border-right: 0 solid transparent;
+  transition:
+    border-left-color 0.1s 0.3s ease-out,
+    transform 0.3s ease-out;
+  transform: translateX(-22.5%);
+  transform-origin: 25% 50%;
+  width: 1.2em;
+  height: 1em;
+  box-sizing: border-box;
+}
+/* Checked */
+.l:checked {
+  background-color: rgba(0, 0, 0, 0.45);
+  box-shadow: 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.1) inset;
+}
+
+.l:checked:before {
+  background-color: currentColor;
+  transform: translateX(125%);
+}
+
+.l:checked:after {
+  border-left-color: currentColor;
+  transform: translateX(-2.5%) rotateY(180deg);
+}
+/* Other States */
+.l:focus {
+  /* Usually an anti-A11Y practice but set to remove an annoyance just for this demo */
+  outline: 0;
+}
+
+/* From Uiverse.io by Spacious74 */ 
+.outer {
+  width: 700px;
+  height: 170px;
+  border-radius: 10px;
+  padding: 1px;
+  background: radial-gradient(circle 230px at 0% 0%, #537bffa2, #0084ff00);
+  position: relative;
+  margin: 0 auto 40px;
+  margin-top: -100px;
+   animation: fadeInUp 1s ease-out forwards;
+}
+
+.dot {
+  width: 5px;
+  aspect-ratio: 1;
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: var(--bg-color);
-  border-radius: 30px;
-  transition: 0.4s;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ffffff;
+  border-radius: 100px;
+  z-index: 2;
+  right: 10%;
+  top: 10%;
+  animation: moveDot 6s linear infinite;
+}
+
+@keyframes moveDot {
+  0%,
+  100% {
+    top: 10%;
+    right: 10%;
+  }
+  25% {
+    top: 10%;
+    right: calc(100% - 35px);
+  }
+  50% {
+    top: calc(100% - 30px);
+    right: calc(100% - 35px);
+  }
+  75% {
+    top: calc(100% - 30px);
+    right: 10%;
+  }
+}
+
+.card2 {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 9px;
+  border: solid 1px #202222;
+  background-size: 20px 20px;
+  background: radial-gradient(circle 280px at 0% 0%, #006eff, #04001d);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 5px;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  color: #fff;
+}
+.ray {
+  width: 155px;
+  height: 50px;
+  border-radius: 100px;
+  position: absolute;
+  background-color: #57d0ff;
+  opacity: 0.4;
+  box-shadow: 0 0 60px #9dd8ff;
+  filter: blur(10px);
+  transform-origin: 10%;
+  top: -18px;
+  left: -5px;
+  transform: rotate(40deg);
 }
 
-/* A Bolinha que move */
-.ball {
+.card2 .text {
+  font-weight: bolder;
+  font-size: 3.7rem;
+  background: linear-gradient(45deg, #86bfff 4%, #3e98ff, hsl(219, 100%, 34%));
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
   position: absolute;
-  height: 22px;
-  width: 22px;
-  left: 4px;
-  bottom: 4px;
-  background-color: var(--ball-color);
-  border-radius: 50%;
-  transition: 0.4s;
+  background-color: #00386d81;
+}
+.topl {
+  top: 10%;
+  background: linear-gradient(90deg, #72cbff 30%, #012c55b6 70%);
+}
+.bottoml {
+  bottom: 10%;
+}
+.leftl {
+  left: 10%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg,#8fd6ff 30%, #004d94 70%);
+}
+.rightl {
+  right: 10%;
+  width: 1px;
+  height: 100%;
+}
+
+/* From Uiverse.io by vinodjangid07 */ 
+.social-card {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0);
+  padding: 20px 25px;
+  border-radius: 14px;
+  margin-top: 10px;
+  margin-left: 190px;
+}
+
+#ou{
+    margin-top: 20px;
+}
+
+.Btn {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.svgContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+  letter-spacing: 0.8px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  border: 1px solid rgba(156, 156, 156, 0.466);
   z-index: 2;
 }
 
-/* Ícones */
-.icon {
-  font-size: 14px;
-  user-select: none;
+.BG {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #181818;
+  z-index: 1;
+  border-radius: 10px;
+  pointer-events: none;
+  transition: all 0.3s;
+  font-size: 0px;
+}
+.github .BG {
+  background: #181818;
+}
+.linkdin .BG {
+  background: #0077b5;
+}
+.whatsapp .BG {
+  background: #075e54;
+}
+.discord .BG {
+  background: #7289da;
+}
+.Btn:hover .BG {
+  transform: scale(1.5);
+  /* transform-origin: bottom; */
+  font-size: 20px;
+  color: white;
 }
 
-/* Lógica de Movimento e Cores */
-input:checked + .slider {
-  background-color: #f0f0f0; /* Fundo claro */
+.Btn:hover .svgContainer {
+  border: 1px solid rgba(216, 216, 216, 0.466);
+  background-color: rgba(209, 209, 209, 0.466);
+  backdrop-filter: blur(4px);
 }
 
-input:checked + .slider .ball {
-  transform: translateX(30px); /* Move a bolinha para a direita */
-  background-color: #333;      /* Bolinha fica escura no tema claro */
+/* From Uiverse.io by PriyanshuGupta28 */ 
+.marquee {
+  overflow: hidden;
+  /* hide the scrolling overflow */
+  width: 100%;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+.marquee_header {
+  font-size: 35px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #18a3ff;
+}
+.marquee__inner {
+  display: flex;
+  width: max-content;
+  animation: marquee 15s linear infinite;
 }
 
-/* Ajuste de visibilidade dos ícones se quiser refinar */
-input:checked + .slider .moon { opacity: 0.3; }
-input:not(:checked) + .slider .sun { opacity: 0.3; }
+.marquee__group {
+  display: flex;
+}
+
+.marquee__group span {
+  margin: 0 1.5rem;
+  white-space: nowrap;
+  background: #000000;
+  color: white;
+  padding: 4px 16px 4px 12px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
