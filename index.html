@@ -7,7 +7,12 @@
     <title>Meu Portfólio | Desenvolvedor Web</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Black+Ops+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Black+Ops+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lilita+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -15,20 +20,20 @@
     <!-- Navegação -->
     <nav>
         <div class="container nav-flex">
-            <div class="logo"><span>MIGUEL PRUDÊNCIO</span></div>
+            <div class="logo"><span>MIGUEL <span class="dev">. dev</span></span></div>
             <ul class="nav-links">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#projetos">Projetos</a></li>
                 <li><a href="#contato">Contato</a></li>
                 
-                    <input type="checkbox" class="l">
+                    <input type="checkbox" id="toggle-theme" class="toggle">
                     
                 
 
             </ul>
         </div>
     </nav>
-
+<div class="efeito"></div>
     <!-- Hero / Sobre Mim -->
     <header id="sobre" class="hero">
         <div class="container">
@@ -39,9 +44,10 @@
                     funcionais. Atualmente, dedico meus dias a dominar o ecossistema do Front-end, transformando designs
                     em código limpo com HTML5,<br> CSS3 e JavaScript.<br> Estou em busca de oportunidades para
                     aplicar<br> meus conhecimentos e evoluir em projetos reais.</p>
-               <!-- From Uiverse.io by PriyanshuGupta28 --> 
+               <button class="btn-cv">Baixar CV</button>
+                    <!-- From Uiverse.io by PriyanshuGupta28 --> 
 <div class="marquee">
-  <div class="marquee_header">ferramentas:</div>
+  <div class="marquee_header">Tecnologias:</div>
   <div class="marquee__inner">
     <div class="marquee__group">
       <span><img src="js.png" alt="Ícone de início" width="32" height="32">  JavaScript</span>
@@ -61,25 +67,21 @@
   </div>
 </div>
 
-            </div>
-        </div>
     </header>
 
     <!-- Projetos -->
     <section id="projetos" class="projects">
         <div class="container">
             <!-- From Uiverse.io by Spacious74 --> 
-<div class="outer">
-  <div class="dot"></div>
-  <div class="card2">
-    <div class="ray"></div>
-    <div class="text">MEUS PROJETOS</div>
-    <div class="line topl"></div>
-    <div class="line leftl"></div>
-    <div class="line bottoml"></div>
-    <div class="line rightl"></div>
-  </div>
+<!-- From Uiverse.io by ali-sazzad --> 
+<div class="sazzad-card">
+ 
+  <div class="sazzad-bg"><div class="proj">
+    <h1>Meus projetos</h1></div></div>
+  <div class="sazzad-aurora"></div> 
+  
 </div>
+
 
             <div class="project-grid">
                 <div class="card">
@@ -145,11 +147,47 @@
             </div>
         </div>
     </section>
+  <div class="counter-container">
+  <!-- Card 1: Anos de Experiência -->
+  <div class="e-card playing">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="infotop">
+      <div class="counter-number" data-target="1">0</div>
+      <div class="counter-label">Anos de Experiência</div>
+    </div>
+  </div>
+
+  <!-- Card 2: Projetos Feitos -->
+  <div class="e-card playing">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="infotop">
+      <div class="counter-number" data-target="12">0</div>
+      <div class="counter-label">Projetos Feitos</div>
+    </div>
+  </div>
+
+  <!-- Card 3: Clientes Satisfeitos -->
+  <div class="e-card playing">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="infotop">
+      <div class="counter-number" data-target="10">0</div>
+      <div class="counter-label">Clientes Satisfeitos</div>
+    </div>
+  </div>
+</div>
+
+
     <script src="script.js"></script>
     <!-- Contato -->
     <footer id="contato">
         <div class="container">
-            <h2>Vamos trabalhar juntos?</h2>
+            <h2>Vamos trabalhar <span class="work">juntos?</span></h2>
             <p>Estou disponível para novos projetos e parcerias.</p>
             <button href="mailto:miguelssprudencio2010@gmail.com" class="btn-cta">
                 <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
