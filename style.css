@@ -1162,7 +1162,7 @@ animation: fadeInUp 1.5s, float 3.5s ease-in-out infinite;
   box-shadow:
     25px 25px 60px rgba(0, 0, 0, 0.12),
     -20px -20px 50px rgba(6, 143, 255, 0.55);
-margin-left: -60px;
+margin-left: -40px;
   transition: 0.4s ease;
 }
 
