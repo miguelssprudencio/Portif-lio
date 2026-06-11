@@ -204,7 +204,7 @@ h2 {
 }
 
 .project-grid {
-    transform: translate(0px, 0px); 
+    transform: translate(-150px, 0px); 
     margin-top: 90px;
    display: flex;
   justify-content: space-between; /* Move as divs para os cantos */
@@ -604,18 +604,27 @@ footer p {
   padding: 5px;
   box-shadow: rgba(27, 202, 255, 0.2) 0 15px 30px -5px;
   background-image: linear-gradient(144deg, #0066ff, #2bc3ff 50%, #00DDEB);
-  background-size: 200% 200%;
+  
+  /* CORREÇÃO 1: Aumentamos para 400% para o movimento ter espaço e ficar ultra fluido */
+  background-size: 400% 400%; 
   background-position: 0% 0%;
+  
   transition: all 0.6s ease;
   cursor: pointer;
-  margin: 0 auto;
-  margin: 16px;
+  margin: 16px; /* Removido o 'margin: 0 auto' duplicado */
+  
+  /* Animação inicial de surgimento no Scroll */
+  animation: fadeInUp 1.5s;
+  animation-timeline: view();
+  animation-range: entry 0% entry 300%; /* Ajustado para terminar quando o card entra na tela */
+  animation-fill-mode: both; 
 }
 
 .card:hover {
-  animation: gradientShift 3s ease infinite;
+    animation-timeline: auto;
+  animation-range: normal;
+  animation: gradientShift 3s ease infinite, transform: translateY(-8px);
   box-shadow: rgba(65, 193, 252, 0.596) 0 20px 40px -5px;
-  transform: translateY(-8px);
 }
 
 @keyframes gradientShift {
@@ -1124,6 +1133,9 @@ nav::after {
 }
 
 
+.meu {
+  margin-left: 600px;
+}
 
 /* From Uiverse.io by ali-sazzad */ 
 .sazzad-card {
@@ -1143,11 +1155,14 @@ nav::after {
   );
   backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.432);
-animation: float 3.5s ease-in-out infinite;
+animation: fadeInUp 1.5s, float 3.5s ease-in-out infinite;
+  animation-timeline: view(), view();
+  animation-range: entry 0% entry 400%, entry 0% entry 400%;
+  animation-fill-mode: both;
   box-shadow:
     25px 25px 60px rgba(0, 0, 0, 0.12),
     -20px -20px 50px rgba(6, 143, 255, 0.55);
-
+margin-left: -60px;
   transition: 0.4s ease;
 }
 
@@ -1239,30 +1254,46 @@ animation: float 3.5s ease-in-out infinite;
 
 /* Container principal (Fundo Geral) */
 .counter-container {
-  transform: translate(0px, 0px);
-   display: flex;
-   /* Transforma o conteúdo em coluna (empilhado) */
-  justify-content: center;  /* Alinha os itens no centro (vertical) */
-  align-items: center;      /* Alinha os itens no centro (horizontal) */
-  gap:25px; 
+  /* 1. MUDAR DE POSIÇÃO: Use margem para mover o bloco todo na tela */
+  margin-top: -1050px;       /* Empurra para baixo */
+  margin-left: 400px;      /* Centraliza na página junto com o margin-right */
+
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  gap: 35px; 
   flex-wrap: wrap;
-  background-color: #00000000; /* 60% Preto no fundo principal */
+  background-image: linear-gradient(144deg, #0051ff00, #0066ff71 50%, #34a4ff); 
   padding: 60px 20px;
   font-family: system-ui, -apple-system, sans-serif;
   min-height: 400px;
+  width: 400px;
+  border-radius: 30px;
+  border: 4px solid rgba(0, 140, 255, 0.486);
+  position: relative;
+
+  /* --- ANIMAÇÃO CORRIGIDA --- */
+  animation: fadeInUp 1.5s;
+  animation-timeline: view();
+  
+  /* CORREÇÃO: Termina em 100% (quando o elemento entra todo na tela) */
+  animation-range: entry 0% entry 200%; 
+  animation-fill-mode: both;
 }
+
 
 /* Estrutura Exata do e-card Original */
 .e-card {
   background: transparent;
   box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
-  position: relative;
+  
   width: 320px;
   height: 250px;
   border-radius: 16px;
   overflow: hidden;
-  animation: float 3.5s ease-in-out infinite;
-   transform: translate(0px, 0px);
+  animation: fadeInUp 1.5s, float 4.5s ease-in-out infinite;
+  
+  transform: translate(0px, 0px);
    
 }
 
