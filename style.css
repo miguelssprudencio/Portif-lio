@@ -1255,8 +1255,8 @@ margin-left: -40px;
 /* Container principal (Fundo Geral) */
 .counter-container {
   /* 1. MUDAR DE POSIÇÃO: Use margem para mover o bloco todo na tela */
-  margin-top: -1050px;       /* Empurra para baixo */
-  margin-left: 400px;      /* Centraliza na página junto com o margin-right */
+  margin-top: -1050px;       /* Empurra para baixo (Computador) */
+  margin-left: 400px;        /* Centraliza na página (Computador) */
 
   display: flex;
   justify-content: center;  
@@ -1270,7 +1270,7 @@ margin-left: -40px;
   width: 400px;
   border-radius: 30px;
   border: 4px solid rgba(0, 140, 255, 0.486);
-  position: relative;
+
 
   /* --- ANIMAÇÃO CORRIGIDA --- */
   animation: fadeInUp 1.5s;
@@ -1279,7 +1279,23 @@ margin-left: -40px;
   /* CORREÇÃO: Termina em 100% (quando o elemento entra todo na tela) */
   animation-range: entry 0% entry 200%; 
   animation-fill-mode: both;
+
 }
+
+/* --- ADICIONADO: Ajustes automáticos para celular --- */
+@media (max-width: 768px) {
+  .counter-container {
+    margin-top: 20px;       /* Remove o valor negativo no celular */
+    margin-left: auto;      /* Centraliza na tela do celular */
+    margin-right: auto;     /* Centraliza na tela do celular */
+                 /* Faz o bloco ocupar quase toda a largura da tela */
+    min-height: auto;       /* Deixa a altura se ajustar ao conteúdo */
+    padding: 30px 15px;     /* Diminui os espaços internos para caber melhor */
+    flex-direction: column; /* Coloca os itens um embaixo do outro */
+    gap: 20px;              /* Diminui o espaço entre os itens internos */
+  }
+}
+
 
 
 /* Estrutura Exata do e-card Original */
