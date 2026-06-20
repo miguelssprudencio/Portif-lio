@@ -56,7 +56,16 @@ const dot  = document.getElementById('cursorDot');
   const html = document.documentElement;
   const btn  = document.getElementById('themeToggle');
   let isDark = true;
-  function applyTheme(dark) { html.setAttribute('data-theme', dark?'dark':'light'); isDark=dark; localStorage.setItem('theme',dark?'dark':'light'); }
+  function applyTheme(dark) {
+    html.setAttribute('data-theme', dark ? 'dark' : 'light');
+    isDark = dark;
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+
+    document.querySelectorAll('img.theme-img').forEach(img => {
+      const src = dark ? img.dataset.darkSrc : img.dataset.lightSrc;
+      if (src) img.src = src;
+    });
+  }
   const saved = localStorage.getItem('theme');
   if(saved) applyTheme(saved==='dark');
   else if(window.matchMedia('(prefers-color-scheme: light)').matches) applyTheme(false);
